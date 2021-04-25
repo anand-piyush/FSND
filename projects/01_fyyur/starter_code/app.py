@@ -70,7 +70,6 @@ class Artist(db.Model):
     name = db.Column(db.String, nullable=False)
     city = db.Column(db.String(120), nullable=False)
     state = db.Column(db.String(120), nullable=False)
-    address = db.Column(db.String(120))
     phone = db.Column(db.String(120), nullable=False)
     website = db.Column(db.String(500))
     genres = db.Column(db.String(120), nullable=False)
