@@ -46,8 +46,8 @@ class Venue(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    city = db.Column(db.String(120))
-    state = db.Column(db.String(120))
+    city = db.Column(db.String(120), nullable=False)
+    state = db.Column(db.String(120), nullable=False)
     address = db.Column(db.String(120))
     phone = db.Column(db.String(120), nullable=False)
     image_link = db.Column(db.String(500))
@@ -56,7 +56,7 @@ class Venue(db.Model):
     seeking_description = db.Column(db.String(500))
     website = db.Column(db.String(300))
     genres = db.Column(db.String(120), nullable=False)
-    shows = db.relationship('Shows', backref = 'venues', cascade = 'all, delete-orphan', lazy = 'dynamic')
+    shows = db.relationship('Shows', backref = 'venue', cascade = 'all, delete-orphan', lazy = 'dynamic')
 
     def __repr__(self):
         return f"<Show {self.id} {self.name}"
@@ -68,8 +68,9 @@ class Artist(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
-    city = db.Column(db.String(120))
-    state = db.Column(db.String(120))
+    city = db.Column(db.String(120), nullable=False)
+    state = db.Column(db.String(120), nullable=False)
+    address = db.Column(db.String(120))
     phone = db.Column(db.String(120), nullable=False)
     website = db.Column(db.String(500))
     genres = db.Column(db.String(120), nullable=False)
@@ -77,7 +78,7 @@ class Artist(db.Model):
     facebook_link = db.Column(db.String(120))
     seeking_venue = db.Column(db.Boolean, nullable=False, default=False)
     seeking_description = db.Column(db.String(500))
-    shows = db.relationship('Shows', backref = 'venues', cascade = 'all, delete-orphan', lazy = 'dynamic')
+    shows = db.relationship('Shows', backref = 'artist', cascade = 'all, delete-orphan', lazy = 'dynamic')
 
     def __repr__(self):
         return f"<Show {self.id} {self.name}"
