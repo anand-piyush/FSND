@@ -59,7 +59,7 @@ class Venue(db.Model):
     shows = db.relationship('Shows', backref = 'venue', cascade = 'all, delete-orphan', lazy = 'dynamic')
 
     def __repr__(self):
-        return f"<Show {self.id} {self.name}"
+        return f"<Venue {self.id} {self.name}"
 
     # TODO: (DONE) implement any missing fields, as a database migration using Flask-Migrate
 
@@ -80,7 +80,7 @@ class Artist(db.Model):
     shows = db.relationship('Shows', backref = 'artist', cascade = 'all, delete-orphan', lazy = 'dynamic')
 
     def __repr__(self):
-        return f"<Show {self.id} {self.name}"
+        return f"<Artist {self.id} {self.name}"
     # TODO: (DONE) implement any missing fields, as a database migration using Flask-Migrate
 
 # TODO (DONE) Implement Show and Artist models, and complete all model relationships and properties, as a database migration.
@@ -115,6 +115,7 @@ def index():
 def venues():
   # TODO: replace with real venues data.
   #       num_shows should be aggregated based on number of upcoming shows per venue.
+
   data=[{
     "city": "San Francisco",
     "state": "CA",
