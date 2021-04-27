@@ -1,5 +1,7 @@
 from app import db, Artist, Venue, Shows
 
+print("started") 
+
 #################### FEEDING VENUE DATA INTO DB #################
 data1={
     "id": 1,
@@ -162,5 +164,25 @@ db.session.add(show5)
 
 # SAVE DATA TO DB
 db.session.commit()
+
+venues = Venue.query.all()
+for venue in venues:
+  if '{' in venue.genres:
+    venue.genres = venue.genres[1:-1]
+db.session.commit()
+
+artists = Artist.query.all()
+for artist in artists:
+  if '{' in artist.genres:
+    artist.genres = artist.genres[1:-1]
+db.session.commit()
+
+db.session.close()
+
+# Venue.query.all()[0].shows.all()[0].artist ; 
+# Venue.query.distinct(Venue.city, Venue.state).all()
+# db.session.query(Venue.city, Venue.state, Venue.shows).group_by(Venue.city, Venue.state)
+# db.session.query(highlight the cols).filter(where condn).filter(another where).group_by()
+# db.session.query(Venue.city, Venue.state, Venue.shows).all()
 
 
