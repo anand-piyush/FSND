@@ -586,10 +586,6 @@ if not app.debug:
 # Launch.
 #----------------------------------------------------------------------------#
 
-# TODO
-# standout options
-# final test, send and bring back comments
-
 
 # Default port:
 if __name__ == '__main__':

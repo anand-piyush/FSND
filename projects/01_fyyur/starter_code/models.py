@@ -8,12 +8,12 @@ db = SQLAlchemy()
 # Models.
 #----------------------------------------------------------------------------#
 
-class Shows(db.Model): #db.table
+class Shows(db.Model): # db.table also possible
     __tablename__ = "Shows"
     id = db.Column(db.Integer, primary_key = True)
     artist_id = db.Column(db.Integer, db.ForeignKey('Artist.id'), nullable = False)
     venue_id = db.Column(db.Integer, db.ForeignKey('Venue.id'), nullable = False)
-    start_time = db.Column(db.DateTime, nullable=False) #pk?
+    start_time = db.Column(db.DateTime, nullable=False) 
 
     def __repr__(self):
         return f"<Show {self.id} {self.date} {self.artist_id} {self.venue_id}"
