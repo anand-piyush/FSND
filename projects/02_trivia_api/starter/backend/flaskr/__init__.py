@@ -1,25 +1,45 @@
 import os
+import random
 from flask import Flask, request, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
-import random
+from flask_cors import CORS, cross_origin
 
 from models import setup_db, Question, Category
+from flaskr.utils import paginate
 
-QUESTIONS_PER_PAGE = 10
+# export FLASK_APP=flaskr
+# export FLASK_ENV=development
+# flask run --reload
+
 
 def create_app(test_config=None):
   # create and configure the app
   app = Flask(__name__)
   setup_db(app)
   
-  '''
-  @TODO: Set up CORS. Allow '*' for origins. Delete the sample route after completing the TODOs
-  '''
+  
+  @app.route('/api/v1.0/')
+  @app.route('/')
+  def main():
+    return('hello piyush')
+
 
   '''
-  @TODO: Use the after_request decorator to set Access-Control-Allow
+  @TODo DONE: Set up CORS. Allow '*' for origins. Delete the sample route after completing the TODOs
   '''
+  CORS(app, resources={r'/api/v1.0/*':{"origins":"*"}})
+
+
+  '''
+  @TODo DONE: Use the after_request decorator to set Access-Control-Allow
+  '''
+
+  @app.after_request
+  def after_request(response):
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    response.headers.add('Access-Control-Allow-Headers', 'GET, POST, PATCH, DELETE, OPTION')
+    return response
+
 
   '''
   @TODO: 
