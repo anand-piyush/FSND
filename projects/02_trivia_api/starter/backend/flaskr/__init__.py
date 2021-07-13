@@ -86,9 +86,6 @@ def create_app(test_config=None):
     you should see questions and categories generated,
     ten questions per page and pagination at the bottom of the screen for three pages.
     Clicking on the page numbers should update the questions. 
-
-    # test case 1 : check if the returned questions > 0
-    # test case 2 : pagination
     '''
     questions = Question.query.all()
     total_questions = len(questions)
@@ -290,7 +287,7 @@ def create_app(test_config=None):
     return jsonify({
         "success": False,
         "error": 422,
-        "message": "Unprocessable Entity"
+        "message": "Unprocessable"
     }),422
 
   @app.errorhandler(500)
@@ -300,6 +297,14 @@ def create_app(test_config=None):
         "error": 500,
         "message": "Internal Server Error"
     }),500
+
+  @app.errorhandler(405)
+  def method_not_allowed(error):
+    return jsonify({
+        "success": False,
+        "error": 405,
+        "message": "Requested Method Not Allowed"
+    }),405
   
   return app
 
