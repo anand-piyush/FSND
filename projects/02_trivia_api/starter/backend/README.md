@@ -179,25 +179,36 @@ GET `/api/v1.0/categories/<int:category_id>/questions`
 - *Example response:*
 ```
 {
-  "current_category": 1, 
+  "categories": {
+    "id": 5, 
+    "type": "Entertainment"
+  }, 
+  "current_category": 5, 
   "questions": [
     {
-      "answer": "The Liver", 
-      "category": 1, 
+      "answer": "Apollo 13", 
+      "category": 5, 
       "difficulty": 4, 
-      "id": 20, 
-      "question": "What is the heaviest organ in the human body?"
+      "id": 2, 
+      "question": "What movie earned Tom Hanks his third straight Oscar nomination, in 1996?"
     }, 
     {
-      "answer": "Alexander Fleming", 
-      "category": 1, 
-      "difficulty": 3, 
-      "id": 21, 
-      "question": "Who discovered penicillin?"
+      "answer": "Tom Cruise", 
+      "category": 5, 
+      "difficulty": 4, 
+      "id": 4, 
+      "question": "What actor did author Anne Rice first denounce, then praise in the role of her beloved Lestat?"
     }, 
+    {
+      "answer": "Edward Scissorhands", 
+      "category": 5, 
+      "difficulty": 3, 
+      "id": 6, 
+      "question": "What was the title of the 1990 fantasy directed by Tim Burton about a young man with multi-bladed appendages?"
+    }
   ], 
   "success": true, 
-  "total_questions": 2
+  "total_questions": 3
 }
 ```
 POST `/api/v1.0/quizzes`
