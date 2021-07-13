@@ -148,17 +148,17 @@ POST `/api/v1.0/questions`
 - *Example response:* 
 ```
 {
-  "created": 29, 
+  "added": 29, 
   "success": true
 }
 ```
-POST `/api/v1.0/questions/search`
+POST `/api/v1.0/questions`
+- SEARCH ENDPOINT
 - Fetches all questions where a substring matches the search term (not case-sensitive)
 - *Request body:* {searchTerm:string}
 - *Example response:*
 ```
 {
-  "current_category": null, 
   "questions": [
     {
       "answer": "Lisbon", 

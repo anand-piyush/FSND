@@ -167,7 +167,8 @@ def create_app(test_config=None):
 
         return jsonify({
             "success": True,
-            "questions": q_list
+            "questions": q_list,
+            "total_questions" : len(q_list)
         })
     
     else:
