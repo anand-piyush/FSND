@@ -26,7 +26,7 @@ def create_app(test_config=None):
 
 
   '''
-  @TODo DONE: Set up CORS. Allow '*' for origins. Delete the sample route after completing the TODOs
+  @TODo DONE: Set up CORS. Allow '*' for origins. Delete the sample route after completing the Todos
   '''
   CORS(app, resources={r'/api/v1.0/*':{"origins":"*"}})
 
@@ -250,7 +250,7 @@ def create_app(test_config=None):
                 else Question.query.all()
     questions = [ques.format() for ques in questions]
     
-    new_ques = [ques for ques in questions if ques[id] not in prev_ques]
+    new_ques = [ques for ques in questions if ques['id'] not in prev_ques]
     # if new ques are none, means game is over
     if not new_ques:
         return jsonify({
