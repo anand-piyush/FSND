@@ -77,12 +77,11 @@ One note before you delve into your tasks: for each endpoint, you are expected t
 
 
 ## API
-
-```
 GET '/api/v1.0/categories'
 - Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 - *Request parameters:* none 
 - *Example response:*  
+```
 {'1' : "Science",
 '2' : "Art",
 '3' : "Geography",
