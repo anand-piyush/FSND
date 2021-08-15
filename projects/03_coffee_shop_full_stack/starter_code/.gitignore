@@ -2,6 +2,7 @@ venv/
 .vscode/
 __pycache__/
 test.db
+coffee_shop_env
 
 # OS generated files #
 ######################
